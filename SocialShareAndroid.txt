@@ -104,3 +104,71 @@ private void shareOnFacebook(){
         }
 
     }
+
+
+
+Xml Layout
+ <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_gravity="end">
+
+                        <TextView
+                            android:id="@+id/reviewsItemFacebook"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="2dp"
+                            android:clickable="true"
+                            android:fontFamily="@font/fa_webfont"
+                            android:text="@string/facebook_logo_code"
+                            android:textColor="@color/button_fb_text_color"
+                            android:textSize="22sp"
+                            android:focusable="true" />
+
+                        <TextView
+                            android:id="@+id/reviewsItemTwitter"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="2dp"
+                            android:clickable="true"
+                            android:fontFamily="@font/fa_webfont"
+                            android:text="@string/twitter_logo_code"
+                            android:textColor="@color/button_twitter_text_color"
+                            android:textSize="22sp"
+                            android:focusable="true" />
+
+                        <TextView
+                            android:id="@+id/reviewsItemLinkedin"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="2dp"
+                            android:clickable="true"
+                            android:fontFamily="@font/fa_webfont"
+                            android:text="@string/linkedin_logo_code"
+                            android:textColor="@color/button_linkedin_text_color"
+                            android:textSize="22sp"
+                            android:focusable="true" />
+
+                        <TextView
+                            android:id="@+id/reviewsItemWhatsapp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:clickable="true"
+                            android:fontFamily="@font/fa_webfont"
+                            android:text="@string/whatsapp_logo_code"
+                            android:textColor="@color/button_whatsapp_text_color"
+                            android:textSize="22sp"
+                            android:focusable="true"
+                            android:layout_marginEnd="2dp"/>
+                        <TextView
+                            android:id="@+id/reviewsItemEmail"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:clickable="true"
+                            android:fontFamily="@font/fa_webfont"
+                            android:text="@string/email_logo_code"
+                            android:textColor="@color/button_email_text_color"
+                            android:textSize="22sp"
+                            android:focusable="true" />
+                    </LinearLayout>
