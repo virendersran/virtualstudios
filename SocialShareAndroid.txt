@@ -1,0 +1,106 @@
+
+ public static boolean isPackageInstalled(String packageName, PackageManager packageManager) {
+        try {
+            packageManager.getPackageInfo(packageName, 0);
+            return true;
+        } catch (PackageManager.NameNotFoundException e) {
+            return false;
+        }
+    }
+private void shareOnFacebook(){
+        if (Utils.isPackageInstalled("com.facebook.katana", context.getPackageManager())){
+            Intent facebookIntent = new Intent();
+            facebookIntent.setAction(Intent.ACTION_SEND);
+            facebookIntent.putExtra(Intent.EXTRA_TEXT, mLinkToShare);
+            facebookIntent.setType("text/plain");
+            facebookIntent.setPackage("com.facebook.katana");
+            context.startActivity(facebookIntent);
+        } else if (Utils.isPackageInstalled("com.facebook.lite", context.getPackageManager())) {
+            Intent facebookIntent = new Intent();
+            facebookIntent.setAction(Intent.ACTION_SEND);
+            facebookIntent.putExtra(Intent.EXTRA_TEXT, mLinkToShare);
+            facebookIntent.setType("text/plain");
+            facebookIntent.setPackage("com.facebook.lited");
+            context.startActivity(facebookIntent);
+        }  else if (Utils.isPackageInstalled("com.facebook.orca", context.getPackageManager())) {
+            Intent facebookIntent = new Intent();
+            facebookIntent.setAction(Intent.ACTION_SEND);
+            facebookIntent.putExtra(Intent.EXTRA_TEXT, mLinkToShare);
+            facebookIntent.setType("text/plain");
+            facebookIntent.setPackage("com.facebook.orca");
+            context.startActivity(facebookIntent);
+        }  else if (Utils.isPackageInstalled("com.facebook.mlite", context.getPackageManager())) {
+            Intent facebookIntent = new Intent();
+            facebookIntent.setAction(Intent.ACTION_SEND);
+            facebookIntent.putExtra(Intent.EXTRA_TEXT, mLinkToShare);
+            facebookIntent.setType("text/plain");
+            facebookIntent.setPackage("com.facebook.mlite");
+            context.startActivity(facebookIntent);
+        } else {
+            String facebookUrl = "https://www.facebook.com/sharer/sharer.php?u=";
+            Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(facebookUrl + mLinkToShare));
+            context.startActivity(browserIntent);
+        }
+    }
+
+    private void shareOnTwitter(){
+        if (Utils.isPackageInstalled("com.twitter.android", context.getPackageManager())){
+            Intent twitterIntent = new Intent();
+            twitterIntent.setAction(Intent.ACTION_SEND);
+            twitterIntent.putExtra(Intent.EXTRA_TEXT, mLinkToShare);
+            twitterIntent.setType("text/plain");
+            twitterIntent.setPackage("com.twitter.android");
+            context.startActivity(twitterIntent);
+        }else  if (Utils.isPackageInstalled("com.twitter.android.lite", context.getPackageManager())){
+            Intent twitterIntent = new Intent();
+            twitterIntent.setAction(Intent.ACTION_SEND);
+            twitterIntent.putExtra(Intent.EXTRA_TEXT, mLinkToShare);
+            twitterIntent.setType("text/plain");
+            twitterIntent.setPackage("com.twitter.android.lite");
+            context.startActivity(twitterIntent);
+        }else {
+            String twitterUrl = "https://twitter.com/home?status=";
+            Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(twitterUrl+mLinkToShare));
+            context.startActivity(browserIntent);
+        }
+    }
+
+    private void shareOnLinkedin(){
+        if (Utils.isPackageInstalled("com.likedin.android.lite", context.getPackageManager())){
+            Intent likedinIntent = new Intent();
+            likedinIntent.setAction(Intent.ACTION_SEND);
+            likedinIntent.putExtra(Intent.EXTRA_TEXT, mLinkToShare);
+            likedinIntent.setType("text/plain");
+            likedinIntent.setPackage("com.likedin.android.lite");
+            context.startActivity(likedinIntent);
+        }else {
+            String linkedinUrl = "https://www.linkedin.com/shareArticle?mini=true&url=";
+            Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(linkedinUrl+mLinkToShare));
+            context.startActivity(browserIntent);
+        }
+    }
+
+    private void shareOnWhatsapp(){
+        if (Utils.isPackageInstalled("com.whatsapp", context.getPackageManager())){
+            Intent whatsappIntent = new Intent();
+            whatsappIntent.setAction(Intent.ACTION_SEND);
+            whatsappIntent.putExtra(Intent.EXTRA_TEXT, mLinkToShare);
+            whatsappIntent.setType("text/plain");
+            whatsappIntent.setPackage("com.whatsapp");
+            context.startActivity(whatsappIntent);
+        }else {
+            String whatsappUrl = "https://wa.me/?text=";
+            Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(whatsappUrl+mLinkToShare));
+            context.startActivity(browserIntent);
+        }
+    }
+
+    private void shareOnEmail(){
+        Intent intent = new Intent(Intent.ACTION_SENDTO);
+        intent.setData(Uri.parse("mailto:")); // only email apps should handle this
+        intent.putExtra(Intent.EXTRA_SUBJECT, mLinkToShare);
+        if (intent.resolveActivity(context.getPackageManager()) != null) {
+            context.startActivity(intent);
+        }
+
+    }
